@@ -40,7 +40,8 @@ function Dishes() {
     const callbackOnError = (error) => {
       alert(error.message);
     }
-    DISHCONTROLLER.createDish(dishes, newDish, setDishes, callbackOnError);
+    var dishesCopy = dishes.slice();
+    DISHCONTROLLER.createDish(dishesCopy, newDish, setDishes, callbackOnError);
     closeDishModal();
   }
 
@@ -61,7 +62,8 @@ function Dishes() {
     const callbackOnError = (error) => {
       alert(error.message);
     }
-    DISHCONTROLLER.deleteDish(dishes, selectedDishId, callback, callbackOnError);
+    var dishesCopy = dishes.slice();
+    DISHCONTROLLER.deleteDish(dishesCopy, selectedDishId, callback, callbackOnError);
   }
 
   return (
