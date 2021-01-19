@@ -23,6 +23,7 @@ export function deleteDish(currentDishes, deleteDishId, callback, callbackOnErro
       let dish = currentDishes[i]
       if(dish.id === deleteDishId) {
         currentDishes.splice(i, 1);
+        break;
       }
     }
     callback(currentDishes);
