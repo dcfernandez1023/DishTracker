@@ -33,6 +33,10 @@ function Dishes() {
   }
 
   function modalCompletionCallback(newDish) {
+    if(newDish.name.trim().length === 0 ) {
+      alert("Please enter a dish name");
+      return;
+    }
     const callbackOnError = (error) => {
       alert(error.message);
     }
@@ -74,12 +78,12 @@ function Dishes() {
           <h5> Your Dishes 🍽️ </h5>
         </Col>
         <Col xs = {4} style = {{textAlign: "right"}}>
-          <Button variant = "dark" size = "sm" style = {{marginRight: "5px"}}
+          <Button variant = "info" size = "sm" style = {{marginRight: "5px"}}
             onClick = {() => {openDishModal(Object.assign({}, DISHMODEL.dish), "Add Dish")}}
           >
-            Add +
+            Add
           </Button>
-          <Button variant = "danger" size = "sm" disabled = {selectedDishId.length === 0}
+          <Button variant = "info" size = "sm" disabled = {selectedDishId.length === 0}
             onClick = {deleteDish}
           >
             Delete
